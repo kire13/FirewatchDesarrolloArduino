@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/col3"
+    android:orientation="vertical"
+    tools:context=".HOME_Monitorizar">
+    <!--inicio-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.09"
+        android:background="@color/colorfondo">
+
+
+    </LinearLayout>
+    <!--//principal  ALTO-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:background="@color/colorfondo">
+
+        </LinearLayout>
+        <!--//principal  ANCHO-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:background="@color/colorfondo"
+            android:orientation="vertical">
+            <!--inicio-->
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:background="@color/colorfondo"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <Space
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.07"></Space>
+
+                            <TextView
+                                android:id="@+id/tv_humo"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/raleway_black"
+                                android:onClick="ChangeView"
+
+                                android:text="Humo"
+                                android:textAlignment="center"
+                                android:textSize="16dp" />
+
+                            <Space
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.07"></Space>
+
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/rv_humo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <Space
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.07"></Space>
+
+                            <TextView
+                                android:id="@+id/tv_humedad"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/raleway_black"
+                                android:onClick="ChangeView"
+                                android:text="Humedad"
+                                android:textAlignment="center"
+                                android:textSize="16dp" />
+
+                            <Space
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.07"></Space>
+
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/rv_humedad"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                ></android.support.v7.widget.RecyclerView>
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <Space
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.07"></Space>
+
+                            <TextView
+                                android:id="@+id/tv_temperatura"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/raleway_black"
+                                android:onClick="ChangeView"
+                                android:text="Temperatura"
+                                android:textAlignment="center"
+                                android:textSize="16dp" />
+
+                            <Space
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.07"></Space>
+
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/rv_temperatura"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                ></android.support.v7.widget.RecyclerView>
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+                    <!--///sector para otro sensores-->
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/raleway_black"
+                                android:onClick="ChangeView"
+
+                                android:text="-----"
+                                android:textAlignment="center"
+                                android:textSize="16dp" />
+
+                            <android.support.v7.widget.RecyclerView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                ></android.support.v7.widget.RecyclerView>
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/raleway_black"
+                                android:onClick="ChangeView"
+
+                                android:text="-----"
+                                android:textAlignment="center"
+                                android:textSize="16dp" />
+
+                            <android.support.v7.widget.RecyclerView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                ></android.support.v7.widget.RecyclerView>
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/raleway_black"
+                                android:onClick="ChangeView"
+
+                                android:text="-----"
+                                android:textAlignment="center"
+                                android:textSize="16dp" />
+
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/rv_otros"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                ></android.support.v7.widget.RecyclerView>
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+
+
+            </ScrollView>
+
+
+            <!--fin-->
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:background="@color/colorfondo">
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.09"
+        android:background="@color/colorfondo">
+
+    </LinearLayout>
+
+
+    <!--fin-->
+</LinearLayout>
