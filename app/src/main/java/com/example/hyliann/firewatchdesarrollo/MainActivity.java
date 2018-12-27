@@ -1,5 +1,6 @@
 package com.example.hyliann.firewatchdesarrollo;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -75,8 +76,10 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     public void Sincronizar(View view) {//llama al cuadro de alerta
-
+        VerificarPermisos();
+        VerificarBT();
         //dispositivos.clear();
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (mBluetoothAdapter == null) {//detectar compatibilidad bluetooth
@@ -88,18 +91,8 @@ public class MainActivity extends AppCompatActivity {
             }
             else{
                 AlertSincronizar().show();
-                /*
-                Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
-                if (pairedDevices.size() > 0) {
-                    // Loop through paired devices
-                    for (BluetoothDevice device : pairedDevices) {
-                        // Add the name and address to an array dispositivos to show in a ListView
-                        dispositivos.add(new Arduino(device.getName()) );
-                    }
-                }
-                */
-            }
 
+            }
         }
 
 
@@ -134,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public AlertDialog AlertSincronizar() {//...agregar style en dialog_sicronizar.xml
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
         View v = inflater.inflate(R.layout.dialog_sincronizar, null);
@@ -257,6 +251,16 @@ public class MainActivity extends AppCompatActivity {
         return dialog;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    void VerificarPermisos(){
+        int permissionCheck = MainActivity.this.checkSelfPermission("Manifest.permission.ACCESS_FINE_LOCATION");
+        permissionCheck += this.checkSelfPermission("Manifest.permission.ACCESS_COARSE_LOCATION");
+        if (permissionCheck != 0) {
+
+            this.requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 1001); //Any number
+        }
+    }
+
     void ActualizarLista() {
         arduinos = new ArduinoDAO(this).getArduinos();
         Aplicacion.setDispositivos(arduinos);
@@ -264,5 +268,17 @@ public class MainActivity extends AppCompatActivity {
         dispositivos.addAll(arduinos);
     }
 
+    private void VerificarBT() {
+
+        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        if (mBluetoothAdapter == null) {//detectar compatibilidad bluetooth
+            Toast.makeText(this, "NO COMPATIBLE!",Toast.LENGTH_SHORT);
+        }else {
+            if (!mBluetoothAdapter.isEnabled()) {//                         //Activar BT //*hacer en un metedo bool
+                Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+            }
+        }
+    }
 
 }
